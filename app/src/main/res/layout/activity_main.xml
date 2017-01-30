@@ -12,6 +12,7 @@
     tools:context="com.example.kheireddine.popularmoviesstage1.ui.MainActivity">
 
     <TextView
+        android:id="@+id/tv_test_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Hello World!!" />
