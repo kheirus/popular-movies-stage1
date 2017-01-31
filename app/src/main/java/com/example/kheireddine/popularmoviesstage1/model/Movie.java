@@ -9,7 +9,7 @@ import com.google.gson.annotations.SerializedName;
 public class Movie {
     @SerializedName("id")
     private long id;
-    @SerializedName("title")
+    @SerializedName("original_title")
     private String title;
     @SerializedName("poster_path")
     private String poster;

@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">PopularMoviesStage1</string>
+    <string name="toolbar_pop_movies">Pop Movies</string>
 </resources>
