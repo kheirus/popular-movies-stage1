@@ -2,9 +2,12 @@ package com.example.kheireddine.popularmoviesstage1.model;
 
 import com.google.gson.annotations.SerializedName;
 
+import org.parceler.Parcel;
+
 /**
  * Created by kheireddine on 30/01/17.
  */
+
 
 public class Movie {
     @SerializedName("id")

@@ -26,7 +26,7 @@ public class MovieDBServiceAPI {
     public static final String SORT_BY_DEFAULT = SORT_BY_POPOLARITY;
 
     //TODO change your own api_key here
-    public static final String API_KEY = "YOUR_API";
+    public static final String API_KEY = "API_KEY";
 
 
     private static OkHttpClient.Builder httpClient = new OkHttpClient.Builder();
