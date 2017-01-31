@@ -1,4 +1,9 @@
 <resources>
     <string name="app_name">PopularMoviesStage1</string>
     <string name="toolbar_pop_movies">Pop Movies</string>
+    <string name="dialog_error_api_key_title">ERROR API KEY!</string>
+    <string name="dialog_error_api_key_message">Please check your api_key</string>
+    <string name="dialog_error_network_title">ERROR NETWORK!</string>
+    <string name="dialog_error_network_message">Please check your network connectivity</string>
+
 </resources>

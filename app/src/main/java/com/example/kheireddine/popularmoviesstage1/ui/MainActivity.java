@@ -1,6 +1,9 @@
 package com.example.kheireddine.popularmoviesstage1.ui;
 
+import android.app.Dialog;
 import android.content.Context;
+import android.content.DialogInterface;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.GridLayoutManager;
@@ -45,7 +48,22 @@ public class MainActivity extends AppCompatActivity {
 
         setToolBar();
         setLayoutManager();
-        httpGetMovies();
+
+        if (Utils.isOnline(mContext)){
+            if (Utils.isValidApiKey())
+                httpGetMovies();
+                // invalid API_KEY
+            else {
+              Utils.showDialog(MainActivity.this,getString(R.string.dialog_error_api_key_title),getString(R.string.dialog_error_api_key_message));
+
+            }
+        }
+        // No network
+        else {
+            Utils.showDialog(MainActivity.this,getString(R.string.dialog_error_network_title),getString(R.string.dialog_error_network_message));
+
+        }
+
 
 
     }
