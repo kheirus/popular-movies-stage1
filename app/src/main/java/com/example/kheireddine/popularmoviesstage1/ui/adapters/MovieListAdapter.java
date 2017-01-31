@@ -24,14 +24,23 @@ import butterknife.ButterKnife;
  * Created by kheireddine on 30/01/17.
  */
 
-public class MoviesListAdapter extends RecyclerView.Adapter<MoviesListAdapter.MovieViewHolder> {
+public class MovieListAdapter extends RecyclerView.Adapter<MovieListAdapter.MovieViewHolder> {
 
-    Context mContext;
-    List<Movie> moviesList;
+    private Context mContext;
+    private List<Movie> moviesList;
+    final private IMovieListListener mOnClickListener;
 
-    public MoviesListAdapter(Context mContext, List<Movie> moviesList) {
+    /**
+     * The interface that receibes onClick messages
+     */
+    public interface IMovieListListener {
+        void onMovieListClick(int clickMovieIndex);
+    }
+
+    public MovieListAdapter(Context mContext, List<Movie> moviesList, IMovieListListener listener) {
         this.mContext = mContext;
         this.moviesList = moviesList;
+        this.mOnClickListener = listener;
     }
 
     @Override
@@ -63,7 +72,11 @@ public class MoviesListAdapter extends RecyclerView.Adapter<MoviesListAdapter.Mo
         return moviesList.size();
     }
 
-    public static class MovieViewHolder extends RecyclerView.ViewHolder{
+    /**
+     * Cache of the children views for a list movie
+     */
+     class MovieViewHolder extends RecyclerView.ViewHolder
+            implements View.OnClickListener{
 
         @BindView(R.id.iv_poster) ImageView ivPoser;
         @BindView(R.id.tv_title) TextView tvTitle;
@@ -71,6 +84,13 @@ public class MoviesListAdapter extends RecyclerView.Adapter<MoviesListAdapter.Mo
         public MovieViewHolder(View itemView) {
             super(itemView);
             ButterKnife.bind(this,itemView);
+            itemView.setOnClickListener(this);
+        }
+
+        @Override
+        public void onClick(View v) {
+            int clickedPosition = getAdapterPosition();
+            mOnClickListener.onMovieListClick(clickedPosition);
         }
     }
 
