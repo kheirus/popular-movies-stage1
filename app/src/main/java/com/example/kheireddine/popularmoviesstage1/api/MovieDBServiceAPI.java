@@ -17,10 +17,15 @@ import retrofit2.converter.gson.GsonConverterFactory;
 /**
  * Created by kheireddine on 30/01/17.
  */
-public class ServiceAPI {
+public class MovieDBServiceAPI {
     public static final String API_BASE_URL = "http://api.themoviedb.org/3/";
     public static final String API_POSTER_HEADER = "http://image.tmdb.org/t/p/w185";
 
+    public static final String SORT_BY_TOP_RATED = "vote_average.desc";
+    public static final String SORT_BY_POPOLARITY = "popularity.desc";
+    public static final String SORT_BY_DEFAULT = SORT_BY_POPOLARITY;
+
+    //TODO change your own api_key here
     public static final String API_KEY = "YOUR_API";
 
 

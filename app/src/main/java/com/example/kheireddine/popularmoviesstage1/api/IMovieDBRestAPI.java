@@ -10,7 +10,7 @@ import retrofit2.http.Query;
  * Created by kheireddine on 30/01/17.
  */
 
-public interface ITmdbAPI {
-    @GET("movie/popular")
+public interface IMovieDBRestAPI {
+    @GET("discover/movie")
     Call<MoviesResults> getPopluarMovies(@Query("sort_by") String sortBy);
 }

@@ -7,8 +7,7 @@ import android.net.NetworkInfo;
 import android.support.v7.app.AlertDialog;
 import android.widget.Toast;
 
-import com.example.kheireddine.popularmoviesstage1.api.ServiceAPI;
-import com.example.kheireddine.popularmoviesstage1.ui.MainActivity;
+import com.example.kheireddine.popularmoviesstage1.api.MovieDBServiceAPI;
 
 /**
  * This class contain utils static functions to use in all project
@@ -53,9 +52,9 @@ public class Utils {
      * Check the api key
      */
     public static boolean isValidApiKey(){
-        if (ServiceAPI.API_KEY.equals("YOUR_API") ||
-                ServiceAPI.API_KEY.isEmpty() ||
-                ServiceAPI.API_KEY.equals("")){
+        if (MovieDBServiceAPI.API_KEY.equals("YOUR_API") ||
+                MovieDBServiceAPI.API_KEY.isEmpty() ||
+                MovieDBServiceAPI.API_KEY.equals("")){
             return false;
         }
         else return true;

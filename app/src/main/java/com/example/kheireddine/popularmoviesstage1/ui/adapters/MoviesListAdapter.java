@@ -10,7 +10,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.kheireddine.popularmoviesstage1.R;
-import com.example.kheireddine.popularmoviesstage1.api.ServiceAPI;
+import com.example.kheireddine.popularmoviesstage1.api.MovieDBServiceAPI;
 import com.example.kheireddine.popularmoviesstage1.model.Movie;
 import com.example.kheireddine.popularmoviesstage1.utils.Utils;
 import com.squareup.picasso.Picasso;
@@ -51,7 +51,7 @@ public class MoviesListAdapter extends RecyclerView.Adapter<MoviesListAdapter.Mo
         Movie mMovie = moviesList.get(position);
         Log.d(Utils.TAG, "poster =  "+mMovie.getPoster());
         Picasso.with(mContext)
-                .load(ServiceAPI.API_POSTER_HEADER+mMovie.getPoster())
+                .load(MovieDBServiceAPI.API_POSTER_HEADER+mMovie.getPoster())
                 .into(holder.ivPoser);
         holder.tvTitle.setText(mMovie.getTitle());
         holder.itemView.setTag(mMovie);
