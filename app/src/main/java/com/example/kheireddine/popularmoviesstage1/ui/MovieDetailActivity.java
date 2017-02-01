@@ -3,6 +3,7 @@ package com.example.kheireddine.popularmoviesstage1.ui;
 import android.content.Context;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -54,5 +55,9 @@ public class MovieDetailActivity extends MainActivity {
                 Log.d(Utils.TAG, "onFailure: "+t.getMessage());
             }
         });
+    }
+
+    public void onClickButtonBackdrop(View view) {
+        Utils.showShortToastMessage(mContext,"Soon...");
     }
 }
