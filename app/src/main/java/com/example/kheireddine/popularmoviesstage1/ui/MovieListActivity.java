@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -44,12 +45,18 @@ public class MovieListActivity extends MainActivity
 
         /** Check network and api_key */
         if (Utils.isOnline(mContext)) {
-            if (Utils.isValidApiKey())
+            if (Utils.isValidApiKey()){
+                Log.d(Utils.TAG, "api valide ");
                 httpGetMovies(SORT_BY);
+            }
+
 
                 // invalid API_KEY
-            else
+            else{
+                Log.d(Utils.TAG, "api invalide");
                 Utils.showDialog(MovieListActivity.this, getString(R.string.dialog_error_api_key_title), getString(R.string.dialog_error_api_key_message));
+            }
+
 
         }
         // No network
@@ -103,14 +110,12 @@ public class MovieListActivity extends MainActivity
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.item_sort_by_popularity:
-                Utils.showShortToastMessage(mContext, "pop");
                 SORT_BY = MovieDBServiceAPI.SORT_BY_POPOLARITY;
                 item.setChecked(true);
                 httpGetMovies(SORT_BY);
                 return true;
 
             case R.id.item_sort_by_top_rated:
-                Utils.showShortToastMessage(mContext, "top");
                 SORT_BY = MovieDBServiceAPI.SORT_BY_TOP_RATED;
                 item.setChecked(true);
                 httpGetMovies(SORT_BY);

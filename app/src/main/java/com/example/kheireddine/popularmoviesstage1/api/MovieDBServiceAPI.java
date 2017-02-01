@@ -21,12 +21,12 @@ public class MovieDBServiceAPI {
     public static final String API_BASE_URL = "http://api.themoviedb.org/3/";
     public static final String API_POSTER_HEADER = "http://image.tmdb.org/t/p/w185";
 
-    public static final String SORT_BY_TOP_RATED = "vote_average.desc";
-    public static final String SORT_BY_POPOLARITY = "popularity.desc";
+    public static final String SORT_BY_TOP_RATED = "top_rated";
+    public static final String SORT_BY_POPOLARITY = "popular";
     public static final String SORT_BY_DEFAULT = SORT_BY_POPOLARITY;
 
     //TODO change YOUR_API_KEY to your own api_key
-    public static final String API_KEY = "YOUR_API_KEY";
+    public static final String API_KEY = "";
 
 
     private static OkHttpClient.Builder httpClient = new OkHttpClient.Builder();

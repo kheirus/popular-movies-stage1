@@ -13,8 +13,9 @@ import retrofit2.http.Query;
  */
 
 public interface IMovieDBRestAPI {
-    @GET("discover/movie")
-    Call<MoviesResults> getPopluarMovies(@Query("sort_by") String sortBy);
+    @GET("movie/{sort_by}")
+    Call<MoviesResults> getPopluarMovies(@Path("sort_by") String sortBy);
+
 
     @GET("movie/{movie_id}")
     Call<Movie> getMovieDetails(@Path("movie_id")long movieId);

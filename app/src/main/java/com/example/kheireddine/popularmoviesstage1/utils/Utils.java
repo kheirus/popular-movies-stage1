@@ -5,6 +5,7 @@ import android.content.DialogInterface;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.support.v7.app.AlertDialog;
+import android.util.Log;
 import android.widget.Toast;
 
 import com.example.kheireddine.popularmoviesstage1.api.MovieDBServiceAPI;
