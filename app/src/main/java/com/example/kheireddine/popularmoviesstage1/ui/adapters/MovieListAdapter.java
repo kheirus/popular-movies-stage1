@@ -60,7 +60,7 @@ public class MovieListAdapter extends RecyclerView.Adapter<MovieListAdapter.Movi
         Movie mMovie = moviesList.get(position);
         Log.d(Utils.TAG, "poster =  "+mMovie.getPoster());
         Picasso.with(mContext)
-                .load(MovieDBServiceAPI.API_POSTER_HEADER+mMovie.getPoster())
+                .load(MovieDBServiceAPI.API_POSTER_HEADER_LARGE +mMovie.getPoster())
                 .into(holder.ivPoser);
         holder.tvTitle.setText(mMovie.getTitle());
         holder.itemView.setTag(mMovie);

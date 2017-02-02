@@ -69,12 +69,13 @@
         android:layout_height="130dp"
         android:id="@+id/iv_poster_detail"
         android:layout_marginTop="178dp"
-        android:scaleType="centerCrop"
         android:background="@color/brown"
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_marginLeft="15dp"/>
+        android:layout_marginLeft="15dp"
+        android:scaleType="fitXY"
+        />
 
     <ImageButton
         android:layout_width="wrap_content"

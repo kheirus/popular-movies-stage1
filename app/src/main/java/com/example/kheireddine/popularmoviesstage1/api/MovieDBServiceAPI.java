@@ -19,7 +19,10 @@ import retrofit2.converter.gson.GsonConverterFactory;
  */
 public class MovieDBServiceAPI {
     public static final String API_BASE_URL = "http://api.themoviedb.org/3/";
-    public static final String API_POSTER_HEADER = "http://image.tmdb.org/t/p/w185";
+    public static final String API_POSTER_HEADER_LARGE = "http://image.tmdb.org/t/p/w185";
+    public static final String API_POSTER_HEADER_SMALL = "http://image.tmdb.org/t/p/w92";
+    public static final String API_BACKDROP_HEADER = "http://image.tmdb.org/t/p/w780";
+
 
     public static final String SORT_BY_TOP_RATED = "top_rated";
     public static final String SORT_BY_POPOLARITY = "popular";
