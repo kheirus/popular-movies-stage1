@@ -5,6 +5,7 @@ import android.content.DialogInterface;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.support.v7.app.AlertDialog;
+import android.util.DisplayMetrics;
 import android.util.Log;
 import android.widget.Toast;
 
@@ -123,7 +124,17 @@ public class Utils {
 
             return timeToDisplay;
         }
+    }
 
+    /**
+     *  Dynamically calculate the number of columns and the layout would adapt to the screen size and orientation
+     * @param context : Activity context
+     */
+    public static int calculateNoOfColumns(Context context) {
+        DisplayMetrics displayMetrics = context.getResources().getDisplayMetrics();
+        float dpWidth = displayMetrics.widthPixels / displayMetrics.density;
+        int noOfColumns = (int) (dpWidth / 180);
+        return noOfColumns;
     }
 
 

@@ -67,10 +67,14 @@ public class MovieDetailsActivity extends MainActivity {
                 // set the poster
                 Picasso.with(mContext)
                         .load(MovieDBServiceAPI.API_POSTER_HEADER_LARGE +mMovie.getPoster())
+                        .placeholder(R.drawable.poster_placeholder)
+                        .error(R.drawable.poster_error)
                         .into(ivPosetr);
                 // set the background
                 Picasso.with(mContext)
                         .load(MovieDBServiceAPI.API_BACKDROP_HEADER+mMovie.getBackdrop())
+                        .placeholder(R.drawable.poster_placeholder)
+                        .error(R.drawable.poster_error)
                         .into(ivBackdrop);
 
 

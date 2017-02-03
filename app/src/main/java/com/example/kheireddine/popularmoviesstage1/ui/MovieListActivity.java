@@ -71,7 +71,9 @@ public class MovieListActivity extends MainActivity
 
     public void setLayoutManager() {
         //StaggeredGridLayoutManager sglm = new StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL);
-        GridLayoutManager gridLayoutManager = new GridLayoutManager(mContext, NB_CELL);
+        //
+        int nbCell = Utils.calculateNoOfColumns(mContext);
+        GridLayoutManager gridLayoutManager = new GridLayoutManager(mContext, nbCell);
         rvMovieList.setLayoutManager(gridLayoutManager);
         rvMovieList.setHasFixedSize(true);
     }
