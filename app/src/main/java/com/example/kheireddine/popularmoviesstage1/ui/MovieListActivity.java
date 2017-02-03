@@ -33,6 +33,9 @@ public class MovieListActivity extends MainActivity
     private MovieListAdapter mAdapter;
     private String SORT_BY = MovieDBServiceAPI.SORT_BY_DEFAULT;
     private final static int NB_CELL = 2;
+    private static final int TITLE_MOVIE_DEFAULT = R.string.toolbar_pop_movies;
+    public static String EXTRA_MOVIE_ID = "extra_movie_id";
+    public static String EXTRA_MOVIE_TITLE = "extra_movie_title";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,7 +43,7 @@ public class MovieListActivity extends MainActivity
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
 
-        setToolBar();
+        setToolBar(getString(TITLE_MOVIE_DEFAULT));
         setLayoutManager();
 
         /** Check network and api_key */
@@ -78,10 +81,6 @@ public class MovieListActivity extends MainActivity
         recyclerView.setAdapter(mAdapter);
     }
 
-    private void setToolBar() {
-        getSupportActionBar().setTitle(getString(R.string.toolbar_pop_movies));
-    }
-
 
     /**
      * Click on a movie
@@ -89,8 +88,9 @@ public class MovieListActivity extends MainActivity
     @Override
     public void onMovieListClick(int clickMovieIndex) {
         Movie mMovieClicked = mMoviesList.get(clickMovieIndex);
-        Intent movieDetailsIntent = new Intent(MovieListActivity.this, MovieDetailActivity.class);
-        movieDetailsIntent.putExtra("movie_id", mMovieClicked.getId());
+        Intent movieDetailsIntent = new Intent(MovieListActivity.this, MovieDetailsActivity.class);
+        movieDetailsIntent.putExtra(EXTRA_MOVIE_ID, mMovieClicked.getId());
+        movieDetailsIntent.putExtra(EXTRA_MOVIE_TITLE, mMovieClicked.getTitle());
         startActivity(movieDetailsIntent);
     }
 
@@ -105,19 +105,20 @@ public class MovieListActivity extends MainActivity
         return true;
     }
 
-    //TODO fix the bug
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.item_sort_by_popularity:
                 SORT_BY = MovieDBServiceAPI.SORT_BY_POPOLARITY;
                 item.setChecked(true);
+                setToolBar(getString(R.string.toolbar_pop_movies));
                 httpGetMovies(SORT_BY);
                 return true;
 
             case R.id.item_sort_by_top_rated:
                 SORT_BY = MovieDBServiceAPI.SORT_BY_TOP_RATED;
                 item.setChecked(true);
+                setToolBar(getString(R.string.toolbar_top_movies));
                 httpGetMovies(SORT_BY);
                 return true;
 

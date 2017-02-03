@@ -3,6 +3,7 @@ package com.example.kheireddine.popularmoviesstage1.ui;
 import android.content.Context;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.MenuItem;
 
 import com.example.kheireddine.popularmoviesstage1.R;
 import com.example.kheireddine.popularmoviesstage1.api.IMovieDBRestAPI;
@@ -44,5 +45,35 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onPause() {
         super.onPause();
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case android.R.id.home :
+                finish();
+                return true;
+
+            default:
+                // If we got here, the user's action was not recognized.
+                // Invoke the superclass to handle it.
+                return super.onOptionsItemSelected(item);
+
+        }
+
+    }
+
+    // Toolbar with title and home button
+    protected void setToolBar(String title, boolean homeUp, boolean showHomeUp) {
+        getSupportActionBar().setTitle(title);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(homeUp);
+        getSupportActionBar().setDisplayShowHomeEnabled(showHomeUp);
+    }
+
+    // Toolbar without home button
+    protected void setToolBar(String title) {
+        getSupportActionBar().setTitle(title);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(false);
+        getSupportActionBar().setDisplayShowHomeEnabled(false);
     }
 }

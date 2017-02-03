@@ -20,6 +20,10 @@ public class Movie {
     private String backdrop;
     @SerializedName("overview")
     private String synopsis;
+    @SerializedName("vote_average")
+    private String rating;
+    @SerializedName("release_date")
+    private String releaseDate;
 
     public long getId() {
         return id;
@@ -39,5 +43,13 @@ public class Movie {
 
     public String getSynopsis() {
         return synopsis;
+    }
+
+    public String getRating() {
+        return rating;
+    }
+
+    public String getReleaseDate() {
+        return releaseDate;
     }
 }
