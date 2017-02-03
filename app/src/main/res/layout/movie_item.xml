@@ -43,10 +43,11 @@
                 android:layout_gravity="center"
                 android:text="title"
                 android:textSize="14sp"
+                android:textStyle="bold"
                 android:maxLines="1"
                 android:ellipsize="marquee"
-                android:layout_marginStart="5dp"
-                android:layout_marginEnd="5dp"
+                android:layout_marginStart="7dp"
+                android:layout_marginEnd="7dp"
                 />
 
         </LinearLayout>
