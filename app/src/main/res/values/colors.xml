@@ -9,7 +9,7 @@
     <color name="white">#FFFFFF</color>
     <color name="greyDark">#262626</color>
     <color name="greyLight">#666666</color>
-
+    <color name="main_background">#E8F5E9</color>
 
 
     <!--help me to place layout-->
