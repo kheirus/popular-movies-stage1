@@ -24,7 +24,7 @@ public class MovieDetailsActivity extends MainActivity {
     @BindView(R.id.tv_title_detail) TextView tvTitle;
     @BindView(R.id.tv_synopsis) TextView tvSynopsis;
     @BindView(R.id.tv_rating) TextView tvRating;
-    @BindView(R.id.tv_release_date) TextView tvReleaseDate;
+    @BindView(R.id.tv_runtime) TextView tvRuntime;
 
     private Movie mMovie;
     private String mMovieTitle;
@@ -56,15 +56,14 @@ public class MovieDetailsActivity extends MainActivity {
             public void onResponse(Call<Movie> call, Response<Movie> response) {
                 // retrieve the selected movie
                 mMovie = response.body();
-                // set the title
-                tvTitle.setText(mMovie.getTitle());
+                // set the title and the year
+                tvTitle.setText(mMovie.getTitle() + " (" + Utils.getYear(mMovie.getReleaseDate())+")");
                 // set the synopsis
                 tvSynopsis.setText(mMovie.getSynopsis());
                 // set rating
                 tvRating.setText(mMovie.getRating());
-                // set the date
-                // TODO display only year
-                tvReleaseDate.setText(mMovie.getReleaseDate());
+                // set the runtime
+                tvRuntime.setText(Utils.timeToDisplay(mMovie.getRuntime()));
                 // set the poster
                 Picasso.with(mContext)
                         .load(MovieDBServiceAPI.API_POSTER_HEADER_LARGE +mMovie.getPoster())

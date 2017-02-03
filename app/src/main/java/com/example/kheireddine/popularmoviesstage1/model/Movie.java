@@ -24,6 +24,9 @@ public class Movie {
     private String rating;
     @SerializedName("release_date")
     private String releaseDate;
+    @SerializedName("runtime")
+    private String runtime;
+
 
     public long getId() {
         return id;
@@ -51,5 +54,9 @@ public class Movie {
 
     public String getReleaseDate() {
         return releaseDate;
+    }
+
+    public String getRuntime() {
+        return runtime;
     }
 }

@@ -107,9 +107,9 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:gravity="center"
-        android:layout_above="@+id/movie_more_info"
-        android:layout_alignLeft="@+id/movie_more_info"
-        android:layout_alignStart="@+id/movie_more_info">
+        android:layout_alignBottom="@+id/movie_more_info"
+        android:layout_toRightOf="@+id/movie_more_info"
+        android:layout_toEndOf="@+id/movie_more_info">
 
         <TextView
             android:layout_width="wrap_content"
@@ -140,16 +140,16 @@
     </LinearLayout>
 
     <TextView
-        android:id="@+id/tv_release_date"
-        android:text="2003-01-01"
-        android:textStyle="italic"
+        android:id="@+id/tv_runtime"
+        android:text="2003"
+        android:textStyle="normal"
         android:textColor="@color/white"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
 
-        android:layout_alignBottom="@+id/tv_title_detail"
-        android:layout_alignLeft="@+id/tv_title_detail"
-        android:layout_alignStart="@+id/tv_title_detail" />
+        android:layout_below="@+id/tv_title_detail"
+        android:layout_toRightOf="@+id/movie_more_info"
+        android:layout_toEndOf="@+id/movie_more_info" />
 
 
 </RelativeLayout>

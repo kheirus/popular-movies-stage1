@@ -3,11 +3,13 @@ package com.example.kheireddine.popularmoviesstage1.ui;
 import android.content.Context;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MenuItem;
 
 import com.example.kheireddine.popularmoviesstage1.R;
 import com.example.kheireddine.popularmoviesstage1.api.IMovieDBRestAPI;
 import com.example.kheireddine.popularmoviesstage1.api.MovieDBServiceAPI;
+import com.example.kheireddine.popularmoviesstage1.utils.Utils;
 
 
 /**

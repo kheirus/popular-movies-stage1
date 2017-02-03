@@ -10,8 +10,13 @@ import android.widget.Toast;
 
 import com.example.kheireddine.popularmoviesstage1.api.MovieDBServiceAPI;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
+
 /**
- * This class contain utils static functions to use in all project
+ * This class contains util functions ready to use
  * Created by kheireddine on 30/01/17.
  */
 
@@ -79,6 +84,46 @@ public class Utils {
                     }
                 });
         alertDialog.show();
+    }
+
+    /**
+     * Returns the year of the given date
+     * @param dateString : date in String format
+     */
+    public static String getYear(String dateString){
+        Calendar calendar = Calendar.getInstance();
+        SimpleDateFormat parser = new SimpleDateFormat("yyyy-MM-dd");
+        Date date = null;
+        try {
+            date = parser.parse(dateString);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        calendar.setTime(date);
+        return String.valueOf(calendar.get(Calendar.YEAR));
+    }
+
+    /**
+     * Convert a duration (minutes) in hours and minutes
+     * @param duration : duration on minutes
+     * @return String value of hours and minutes
+     */
+    public static String timeToDisplay(String duration){
+        String timeToDisplay = "";
+        if (duration == null || duration.isEmpty())
+            return "";
+        else {
+            int runtime = Integer.parseInt(duration);
+            int hours = runtime / 60;
+            int min = runtime % 60;
+            if(min < 10)
+                timeToDisplay = hours + "h0" + min;
+            else
+                timeToDisplay = hours + "h" + min;
+
+            return timeToDisplay;
+        }
+
     }
 
 
